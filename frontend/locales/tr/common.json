@@ -1,0 +1,248 @@
+{
+  "common": {
+    "appName": "UwuFufu",
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "close": "Kapat",
+    "back": "Geri",
+    "next": "İleri",
+    "submit": "Gönder",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "sort": "Sırala",
+    "language": "Dil"
+  },
+  "navbar": {
+    "home": "Ana Sayfa",
+    "explore": "Keşfet",
+    "create": "Quiz Oluştur",
+    "profile": "Profil",
+    "admin": "Yönetici",
+    "login": "Giriş Yap",
+    "register": "Kayıt Ol",
+    "logout": "Çıkış Yap"
+  },
+  "footer": {
+    "about": "Hakkında",
+    "terms": "Kullanım Şartları",
+    "privacy": "Gizlilik Politikası",
+    "contact": "İletişim",
+    "allRightsReserved": "Tüm hakları saklıdır"
+  },
+  "home": {
+    "hero": {
+      "title": "İnteraktif Quizler Oluştur ve Oyna",
+      "subtitle": "Dünya kupası parantezleri, kişilik testleri ve daha fazlasını oluştur. Arkadaşlarınla paylaş ve trendleri keşfet!",
+      "startPlaying": "Oynamaya Başla",
+      "createQuiz": "Quiz Oluştur"
+    },
+    "trending": {
+      "title": "Trend Quizler",
+      "viewAll": "Tümünü Gör"
+    },
+    "new": {
+      "title": "Yeni Quizler",
+      "viewAll": "Tümünü Gör"
+    },
+    "categories": {
+      "title": "Kategorilere Göre Gözat"
+    }
+  },
+  "explore": {
+    "title": "Quizleri Keşfet",
+    "filters": {
+      "all": "Tümü",
+      "category": "Kategori",
+      "type": "Tür",
+      "nsfw": "NSFW Göster"
+    },
+    "sort": {
+      "trending": "Trend",
+      "newest": "En Yeni",
+      "mostPlayed": "En Çok Oynanan",
+      "mostLiked": "En Beğenilen"
+    },
+    "noResults": "Quiz bulunamadı"
+  },
+  "quiz": {
+    "playNow": "Şimdi Oyna",
+    "plays": "oynanma",
+    "likes": "beğeni",
+    "bookmarks": "kayıt",
+    "items": "öğe",
+    "createdBy": "Oluşturan",
+    "like": "Beğen",
+    "unlike": "Beğeniyi Kaldır",
+    "bookmark": "Kaydet",
+    "unbookmark": "Kaydı Kaldır",
+    "share": "Paylaş",
+    "report": "Şikayet Et",
+    "comments": "Yorumlar",
+    "addComment": "Yorum ekle",
+    "relatedQuizzes": "İlgili Quizler",
+    "types": {
+      "worldcup": "Dünya Kupası",
+      "personality": "Kişilik",
+      "smash_or_pass": "Evet mi Hayır mı",
+      "vs": "Karşı",
+      "poll": "Anket"
+    }
+  },
+  "play": {
+    "round": "Tur",
+    "of": "/",
+    "vs": "Karşı",
+    "smash": "Evet",
+    "pass": "Hayır",
+    "skip": "Atla",
+    "results": "Sonuçlar",
+    "winner": "Kazanan",
+    "rank": "Sıralama",
+    "votes": "oy",
+    "playAgain": "Tekrar Oyna",
+    "shareResults": "Sonuçları Paylaş",
+    "backToQuiz": "Quiz'e Dön"
+  },
+  "create": {
+    "title": "Quiz Oluştur",
+    "steps": {
+      "basic": "Temel Bilgiler",
+      "items": "Öğeler",
+      "preview": "Önizleme",
+      "publish": "Yayınla"
+    },
+    "basicInfo": {
+      "title": "Temel Bilgiler",
+      "quizTitle": "Quiz Başlığı",
+      "quizTitlePlaceholder": "Quiz başlığı girin",
+      "quizDescription": "Açıklama",
+      "quizDescriptionPlaceholder": "Quiz'inizi açıklayın",
+      "category": "Kategori",
+      "selectCategory": "Kategori seçin",
+      "tags": "Etiketler",
+      "selectTags": "Etiket seçin",
+      "type": "Quiz Türü",
+      "coverImage": "Kapak Resmi URL",
+      "coverImagePlaceholder": "https://...",
+      "nsfw": "NSFW olarak işaretle",
+      "visibility": "Görünürlük",
+      "visibilityPublic": "Herkese Açık",
+      "visibilityUnlisted": "Listelenmemiş",
+      "visibilityPrivate": "Özel"
+    },
+    "items": {
+      "title": "Öğe Ekle",
+      "addItem": "Öğe Ekle",
+      "itemLabel": "Öğe Etiketi",
+      "itemImage": "Resim URL",
+      "removeItem": "Öğeyi Kaldır",
+      "minItems": "En az {count} öğe gerekli",
+      "dragToReorder": "Sıralamak için sürükle"
+    },
+    "preview": {
+      "title": "Önizleme",
+      "description": "Yayınlamadan önce quiz'inizi gözden geçirin"
+    },
+    "publish": {
+      "title": "Quiz'i Yayınla",
+      "success": "Quiz başarıyla yayınlandı!",
+      "error": "Quiz yayınlanamadı",
+      "publishing": "Yayınlanıyor..."
+    },
+    "validation": {
+      "titleRequired": "Her iki dilde başlık gerekli",
+      "descriptionRequired": "Her iki dilde açıklama gerekli",
+      "categoryRequired": "Lütfen bir kategori seçin",
+      "typeRequired": "Lütfen bir quiz türü seçin",
+      "minItemsRequired": "En az {count} öğe gerekli"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Tekrar Hoş Geldiniz",
+      "subtitle": "UwuFufu'ya devam etmek için giriş yapın",
+      "email": "E-posta",
+      "emailPlaceholder": "eposta@ornek.com",
+      "password": "Şifre",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Giriş Yap",
+      "noAccount": "Hesabınız yok mu?",
+      "signUp": "Kayıt ol",
+      "error": "Geçersiz e-posta veya şifre"
+    },
+    "register": {
+      "title": "Hesap Oluştur",
+      "subtitle": "Bugün UwuFufu'ya katıl",
+      "username": "Kullanıcı Adı",
+      "usernamePlaceholder": "kullaniciadi",
+      "email": "E-posta",
+      "emailPlaceholder": "eposta@ornek.com",
+      "password": "Şifre",
+      "passwordPlaceholder": "••••••••",
+      "confirmPassword": "Şifreyi Onayla",
+      "preferredLanguage": "Tercih Edilen Dil",
+      "submit": "Hesap Oluştur",
+      "hasAccount": "Zaten hesabınız var mı?",
+      "signIn": "Giriş yap",
+      "error": "Kayıt başarısız",
+      "success": "Hesap başarıyla oluşturuldu!"
+    }
+  },
+  "profile": {
+    "myQuizzes": "Quiz'lerim",
+    "bookmarks": "Kaydedilenler",
+    "settings": "Ayarlar",
+    "editProfile": "Profili Düzenle",
+    "bio": "Biyografi",
+    "avatar": "Avatar URL",
+    "updateSuccess": "Profil başarıyla güncellendi",
+    "updateError": "Profil güncellenemedi"
+  },
+  "admin": {
+    "title": "Yönetici Paneli",
+    "reports": "Şikayetler",
+    "users": "Kullanıcılar",
+    "pendingReports": "Bekleyen Şikayetler",
+    "resolvedReports": "Çözülen Şikayetler",
+    "reportDetails": "Şikayet Detayları",
+    "reason": "Sebep",
+    "description": "Açıklama",
+    "status": "Durum",
+    "resolve": "Çöz",
+    "dismiss": "Reddet",
+    "userRole": "Kullanıcı Rolü"
+  },
+  "errors": {
+    "404": {
+      "title": "Sayfa Bulunamadı",
+      "message": "Aradığınız sayfa mevcut değil.",
+      "goHome": "Ana Sayfaya Git"
+    },
+    "500": {
+      "title": "Sunucu Hatası",
+      "message": "Bizim tarafımızda bir şeyler yanlış gitti.",
+      "retry": "Tekrar Dene"
+    },
+    "unauthorized": "Bunu yapmak için giriş yapmalısınız",
+    "forbidden": "Bunu yapmak için yetkiniz yok"
+  },
+  "seo": {
+    "home": {
+      "title": "UwuFufu - İnteraktif Quizler Oluştur ve Oyna",
+      "description": "Dünya kupası parantezleri, kişilik testleri ve daha fazlasını oluştur. Arkadaşlarınla paylaş ve trendleri keşfet!"
+    },
+    "explore": {
+      "title": "Quizleri Keşfet - UwuFufu",
+      "description": "Tüm kategorilerde trend ve yeni quizleri keşfet"
+    },
+    "create": {
+      "title": "Quiz Oluştur - UwuFufu",
+      "description": "Kendi interaktif quiz'ini oluştur ve dünyayla paylaş"
+    }
+  }
+}

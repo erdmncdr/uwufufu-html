@@ -1,0 +1,329 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  user
+  admin
+  moderator
+}
+
+enum Language {
+  en
+  tr
+}
+
+enum QuizType {
+  worldcup
+  personality
+  smash_or_pass
+  vs
+  poll
+}
+
+enum QuizVisibility {
+  public
+  unlisted
+  private
+}
+
+enum ReportTargetType {
+  quiz
+  comment
+  user
+}
+
+enum ReportStatus {
+  pending
+  reviewing
+  resolved
+  dismissed
+}
+
+enum ReportReason {
+  spam
+  inappropriate_content
+  harassment
+  copyright
+  misleading
+  other
+}
+
+enum NotificationType {
+  quiz_liked
+  quiz_commented
+  comment_replied
+  quiz_featured
+  user_followed
+}
+
+model User {
+  id                String   @id @default(cuid())
+  username          String   @unique
+  email             String   @unique
+  passwordHash      String
+  avatarUrl         String?
+  bio               String?
+  role              UserRole @default(user)
+  preferredLanguage Language @default(en)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  createdQuizzes Quiz[]
+  votes          Vote[]
+  likes          Like[]
+  bookmarks      Bookmark[]
+  comments       Comment[]
+  notifications  Notification[]
+  reports        Report[]       @relation("ReporterReports")
+  reviewedReports Report[]      @relation("ReviewerReports")
+  refreshTokens  RefreshToken[]
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("refresh_tokens")
+}
+
+model Category {
+  id             String  @id @default(cuid())
+  slug           String  @unique
+  name_en        String
+  name_tr        String
+  description_en String?
+  description_tr String?
+  icon           String?
+
+  // Relations
+  quizzes Quiz[]
+
+  @@map("categories")
+}
+
+model Tag {
+  id      String @id @default(cuid())
+  slug    String @unique
+  name_en String
+  name_tr String
+
+  // Relations
+  quizzes QuizTag[]
+
+  @@map("tags")
+}
+
+model Quiz {
+  id             String         @id @default(cuid())
+  slug           String         @unique
+  type           QuizType
+  title_en       String
+  title_tr       String
+  description_en String
+  description_tr String
+  coverImageUrl  String?
+  categoryId     String
+  createdById    String
+  visibility     QuizVisibility @default(public)
+  isNSFW         Boolean        @default(false)
+  playCount      Int            @default(0)
+  likeCount      Int            @default(0)
+  bookmarkCount  Int            @default(0)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  // Relations
+  category   Category    @relation(fields: [categoryId], references: [id])
+  creator    User        @relation(fields: [createdById], references: [id])
+  items      QuizItem[]
+  tags       QuizTag[]
+  votes      Vote[]
+  likes      Like[]
+  bookmarks  Bookmark[]
+  comments   Comment[]
+  matchups   Matchup[]
+  reports    Report[]
+
+  @@index([categoryId])
+  @@index([createdById])
+  @@index([visibility, isNSFW])
+  @@index([createdAt])
+  @@index([playCount])
+  @@index([likeCount])
+  @@map("quizzes")
+}
+
+model QuizTag {
+  quizId String
+  tagId  String
+
+  quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  tag  Tag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([quizId, tagId])
+  @@map("quiz_tags")
+}
+
+model QuizItem {
+  id         String  @id @default(cuid())
+  quizId     String
+  label_en   String
+  label_tr   String
+  imageUrl   String
+  orderIndex Int
+  extraMeta  Json?
+
+  // Relations
+  quiz          Quiz      @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  votes         Vote[]
+  matchupsAsA   Matchup[] @relation("ItemA")
+  matchupsAsB   Matchup[] @relation("ItemB")
+  matchupsAsWin Matchup[] @relation("Winner")
+
+  @@index([quizId])
+  @@map("quiz_items")
+}
+
+model Matchup {
+  id           String  @id @default(cuid())
+  quizId       String
+  roundNumber  Int
+  itemAId      String
+  itemBId      String
+  winnerItemId String?
+
+  // Relations
+  quiz   Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  itemA  QuizItem @relation("ItemA", fields: [itemAId], references: [id])
+  itemB  QuizItem @relation("ItemB", fields: [itemBId], references: [id])
+  winner QuizItem? @relation("Winner", fields: [winnerItemId], references: [id])
+
+  @@index([quizId])
+  @@map("matchups")
+}
+
+model Vote {
+  id         String   @id @default(cuid())
+  quizId     String
+  quizItemId String
+  userId     String?
+  ipHash     String
+  createdAt  DateTime @default(now())
+
+  // Relations
+  quiz Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  item QuizItem @relation(fields: [quizItemId], references: [id], onDelete: Cascade)
+  user User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([quizId])
+  @@index([userId])
+  @@map("votes")
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  quizId    String
+  userId    String
+  createdAt DateTime @default(now())
+
+  // Relations
+  quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([quizId, userId])
+  @@index([userId])
+  @@map("likes")
+}
+
+model Bookmark {
+  id        String   @id @default(cuid())
+  quizId    String
+  userId    String
+  createdAt DateTime @default(now())
+
+  // Relations
+  quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([quizId, userId])
+  @@index([userId])
+  @@map("bookmarks")
+}
+
+model Comment {
+  id              String   @id @default(cuid())
+  quizId          String
+  userId          String
+  parentCommentId String?
+  content         String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  quiz   Quiz      @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  user   User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  parent Comment?  @relation("CommentReplies", fields: [parentCommentId], references: [id], onDelete: Cascade)
+  replies Comment[] @relation("CommentReplies")
+  reports Report[]
+
+  @@index([quizId])
+  @@index([userId])
+  @@index([parentCommentId])
+  @@map("comments")
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  type      NotificationType
+  payload   Json
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, isRead])
+  @@map("notifications")
+}
+
+model Report {
+  id           String           @id @default(cuid())
+  targetType   ReportTargetType
+  targetId     String
+  reporterId   String
+  reason       ReportReason
+  description  String?
+  status       ReportStatus     @default(pending)
+  reviewedById String?
+  reviewNote   String?
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  // Relations
+  reporter User     @relation("ReporterReports", fields: [reporterId], references: [id])
+  reviewer User?    @relation("ReviewerReports", fields: [reviewedById], references: [id])
+  quiz     Quiz?    @relation(fields: [targetId], references: [id], onDelete: Cascade)
+  comment  Comment? @relation(fields: [targetId], references: [id], onDelete: Cascade)
+
+  @@index([status])
+  @@index([reporterId])
+  @@map("reports")
+}

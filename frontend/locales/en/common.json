@@ -1,0 +1,248 @@
+{
+  "common": {
+    "appName": "UwuFufu",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "language": "Language"
+  },
+  "navbar": {
+    "home": "Home",
+    "explore": "Explore",
+    "create": "Create Quiz",
+    "profile": "Profile",
+    "admin": "Admin",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+  "footer": {
+    "about": "About",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "contact": "Contact",
+    "allRightsReserved": "All rights reserved"
+  },
+  "home": {
+    "hero": {
+      "title": "Create & Play Interactive Quizzes",
+      "subtitle": "Build worldcup brackets, personality quizzes, and more. Share with friends and see what's trending!",
+      "startPlaying": "Start Playing",
+      "createQuiz": "Create a Quiz"
+    },
+    "trending": {
+      "title": "Trending Quizzes",
+      "viewAll": "View All"
+    },
+    "new": {
+      "title": "New Quizzes",
+      "viewAll": "View All"
+    },
+    "categories": {
+      "title": "Browse by Category"
+    }
+  },
+  "explore": {
+    "title": "Explore Quizzes",
+    "filters": {
+      "all": "All",
+      "category": "Category",
+      "type": "Type",
+      "nsfw": "Show NSFW"
+    },
+    "sort": {
+      "trending": "Trending",
+      "newest": "Newest",
+      "mostPlayed": "Most Played",
+      "mostLiked": "Most Liked"
+    },
+    "noResults": "No quizzes found"
+  },
+  "quiz": {
+    "playNow": "Play Now",
+    "plays": "plays",
+    "likes": "likes",
+    "bookmarks": "bookmarks",
+    "items": "items",
+    "createdBy": "Created by",
+    "like": "Like",
+    "unlike": "Unlike",
+    "bookmark": "Bookmark",
+    "unbookmark": "Remove Bookmark",
+    "share": "Share",
+    "report": "Report",
+    "comments": "Comments",
+    "addComment": "Add a comment",
+    "relatedQuizzes": "Related Quizzes",
+    "types": {
+      "worldcup": "World Cup",
+      "personality": "Personality",
+      "smash_or_pass": "Smash or Pass",
+      "vs": "VS",
+      "poll": "Poll"
+    }
+  },
+  "play": {
+    "round": "Round",
+    "of": "of",
+    "vs": "VS",
+    "smash": "Smash",
+    "pass": "Pass",
+    "skip": "Skip",
+    "results": "Results",
+    "winner": "Winner",
+    "rank": "Rank",
+    "votes": "votes",
+    "playAgain": "Play Again",
+    "shareResults": "Share Results",
+    "backToQuiz": "Back to Quiz"
+  },
+  "create": {
+    "title": "Create a Quiz",
+    "steps": {
+      "basic": "Basic Info",
+      "items": "Items",
+      "preview": "Preview",
+      "publish": "Publish"
+    },
+    "basicInfo": {
+      "title": "Basic Information",
+      "quizTitle": "Quiz Title",
+      "quizTitlePlaceholder": "Enter quiz title",
+      "quizDescription": "Description",
+      "quizDescriptionPlaceholder": "Describe your quiz",
+      "category": "Category",
+      "selectCategory": "Select a category",
+      "tags": "Tags",
+      "selectTags": "Select tags",
+      "type": "Quiz Type",
+      "coverImage": "Cover Image URL",
+      "coverImagePlaceholder": "https://...",
+      "nsfw": "Mark as NSFW",
+      "visibility": "Visibility",
+      "visibilityPublic": "Public",
+      "visibilityUnlisted": "Unlisted",
+      "visibilityPrivate": "Private"
+    },
+    "items": {
+      "title": "Add Items",
+      "addItem": "Add Item",
+      "itemLabel": "Item Label",
+      "itemImage": "Image URL",
+      "removeItem": "Remove Item",
+      "minItems": "You need at least {count} items",
+      "dragToReorder": "Drag to reorder"
+    },
+    "preview": {
+      "title": "Preview",
+      "description": "Review your quiz before publishing"
+    },
+    "publish": {
+      "title": "Publish Quiz",
+      "success": "Quiz published successfully!",
+      "error": "Failed to publish quiz",
+      "publishing": "Publishing..."
+    },
+    "validation": {
+      "titleRequired": "Title is required in both languages",
+      "descriptionRequired": "Description is required in both languages",
+      "categoryRequired": "Please select a category",
+      "typeRequired": "Please select a quiz type",
+      "minItemsRequired": "At least {count} items are required"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Login to continue to UwuFufu",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "password": "Password",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Login",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "error": "Invalid email or password"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join UwuFufu today",
+      "username": "Username",
+      "usernamePlaceholder": "username",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "password": "Password",
+      "passwordPlaceholder": "••••••••",
+      "confirmPassword": "Confirm Password",
+      "preferredLanguage": "Preferred Language",
+      "submit": "Create Account",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "error": "Registration failed",
+      "success": "Account created successfully!"
+    }
+  },
+  "profile": {
+    "myQuizzes": "My Quizzes",
+    "bookmarks": "Bookmarks",
+    "settings": "Settings",
+    "editProfile": "Edit Profile",
+    "bio": "Bio",
+    "avatar": "Avatar URL",
+    "updateSuccess": "Profile updated successfully",
+    "updateError": "Failed to update profile"
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "reports": "Reports",
+    "users": "Users",
+    "pendingReports": "Pending Reports",
+    "resolvedReports": "Resolved Reports",
+    "reportDetails": "Report Details",
+    "reason": "Reason",
+    "description": "Description",
+    "status": "Status",
+    "resolve": "Resolve",
+    "dismiss": "Dismiss",
+    "userRole": "User Role"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "message": "The page you're looking for doesn't exist.",
+      "goHome": "Go Home"
+    },
+    "500": {
+      "title": "Server Error",
+      "message": "Something went wrong on our end.",
+      "retry": "Retry"
+    },
+    "unauthorized": "You must be logged in to do that",
+    "forbidden": "You don't have permission to do that"
+  },
+  "seo": {
+    "home": {
+      "title": "UwuFufu - Create & Play Interactive Quizzes",
+      "description": "Build worldcup brackets, personality quizzes, and more. Share with friends and see what's trending!"
+    },
+    "explore": {
+      "title": "Explore Quizzes - UwuFufu",
+      "description": "Discover trending and new quizzes across all categories"
+    },
+    "create": {
+      "title": "Create a Quiz - UwuFufu",
+      "description": "Build your own interactive quiz and share it with the world"
+    }
+  }
+}
