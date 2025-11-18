@@ -3,6 +3,9 @@ import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { AuthProvider } from '@/components/providers/AuthProvider';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { ToastContainer } from '@/components/ui/Toast';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -31,9 +34,14 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+          <AuthProvider>
+            <ErrorBoundary>
+              <ToastContainer />
+              <Header />
+              <main className="min-h-screen">{children}</main>
+              <Footer />
+            </ErrorBoundary>
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

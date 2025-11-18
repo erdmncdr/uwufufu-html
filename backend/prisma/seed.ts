@@ -399,12 +399,28 @@ async function main() {
 
   // Create some demo votes
   console.log('Creating demo votes...');
-  await prisma.vote.createMany({
-    data: [
-      { quizId: kpopQuiz.id, quizItemId: kpopQuiz.id, ipHash: 'hash1', userId: demoUser.id },
-      { quizId: foodQuiz.id, quizItemId: foodQuiz.id, ipHash: 'hash2', userId: admin.id },
-    ],
+
+  // Get quiz items for voting
+  const kpopItems = await prisma.quizItem.findMany({
+    where: { quizId: kpopQuiz.id },
+    take: 2,
   });
+
+  const foodItems = await prisma.quizItem.findMany({
+    where: { quizId: foodQuiz.id },
+    take: 2,
+  });
+
+  if (kpopItems.length > 0 && foodItems.length > 0) {
+    await prisma.vote.createMany({
+      data: [
+        { quizId: kpopQuiz.id, quizItemId: kpopItems[0].id, ipHash: 'demo-hash-1', userId: demoUser.id },
+        { quizId: kpopQuiz.id, quizItemId: kpopItems[1].id, ipHash: 'demo-hash-2', userId: admin.id },
+        { quizId: foodQuiz.id, quizItemId: foodItems[0].id, ipHash: 'demo-hash-3', userId: demoUser.id },
+        { quizId: foodQuiz.id, quizItemId: foodItems[1].id, ipHash: 'demo-hash-4', userId: admin.id },
+      ],
+    });
+  }
 
   console.log('✅ Database seeded successfully!');
   console.log('\n📝 Demo accounts:');

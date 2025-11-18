@@ -8,6 +8,7 @@ import { VotesModule } from './votes/votes.module';
 import { SocialModule } from './social/social.module';
 import { AdminModule } from './admin/admin.module';
 import { CategoriesModule } from './categories/categories.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { CategoriesModule } from './categories/categories.module';
       },
     ]),
     PrismaModule,
+    HealthModule,
     AuthModule,
     UsersModule,
     QuizzesModule,

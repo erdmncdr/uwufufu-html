@@ -85,6 +85,8 @@
     "comments": "Yorumlar",
     "addComment": "Yorum ekle",
     "relatedQuizzes": "İlgili Quizler",
+    "selectOne": "Devam etmek için birini seçin",
+    "tags": "Etiketler",
     "types": {
       "worldcup": "Dünya Kupası",
       "personality": "Kişilik",

@@ -85,6 +85,8 @@
     "comments": "Comments",
     "addComment": "Add a comment",
     "relatedQuizzes": "Related Quizzes",
+    "selectOne": "Select one to continue",
+    "tags": "Tags",
     "types": {
       "worldcup": "World Cup",
       "personality": "Personality",
